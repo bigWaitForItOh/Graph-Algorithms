@@ -59,4 +59,4 @@ Explanation, Analysis and Implementation of Graph Algorithms
 
 23. Maximum Bipartite Matching
 
-24. Ford-Dulkerson Max FLow Algorithm
+24. Ford-Fulkerson Max Flow Algorithm
