@@ -20,15 +20,15 @@ def dijkstra (graph, start, target):
 	return (current_node [0], current_node [2]);
 
 #EXAMPLE OF A GRAPH
-#REPRESENTED BY A DICTIONARY, WHERE A KEY REPRESENTS THE NODE FROM WHICH THE EDGE STARTS. A key's value is a list of Tuples. The first element of each tuple is the Node the edge reaches. The second element is the weight of the edge. The list contains 1 tuple for every neighbour the KEY has.
+#REPRESENTED BY A DICTIONARY, WHERE A KEY REPRESENTS THE NODE FROM WHICH THE EDGE STARTS. A key's value is a set of Tuples. The first element of each tuple is the Node the edge reaches. The second element is the weight of the edge. The list contains 1 tuple for every neighbour the KEY has.
 #EXAMPLE: A is connected to B with weight 2 and C with weight 3.
 graph = {
-	'A': [ ('B', 2), ('C', 3) ],
-	'B': [ ('C', 3), ('D', 5), ('E', 8) ],
-	'C': [ ('D', 6) ],
-	'D': [ ('E', 8), ('F',6) ],
-	'E': [ ('F', 6) ],
-	'F': []
+	'A': set ([ ('B', 2), ('C', 3) ]),
+	'B': set ([ ('C', 3), ('D', 5), ('E', 8) ]),
+	'C': set ([ ('D', 6) ]),
+	'D': set ([ ('E', 8), ('F',6) ]),
+	'E': set ([ ('F', 6) ]),
+	'F': set ([])
 };
 
 #SAMPLE CALL TO THE FUNCTION

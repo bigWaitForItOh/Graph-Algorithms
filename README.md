@@ -5,7 +5,7 @@ Explanation, Analysis and Implementation of Graph Algorithms
 
 	-> Exploring the entire graph
 
-	-> Finding the first path from start to end node
+	-> Finding the first (shortest) path from start to end node
 
 	-> Finding all possible paths from start to end node
 
