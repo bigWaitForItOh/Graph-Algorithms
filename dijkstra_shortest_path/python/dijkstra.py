@@ -1,5 +1,5 @@
 ###########################################################################################################################
-#IMPLEMENTATION OF Dijkstra's Shortest Path Algorithm for weighted, directed graphs. Yields shortest path LENGTHS from
+#IMPLEMENTATION OF Dijkstra's Shortest Path Algorithm for connected, weighted, directed graphs. Yields shortest path LENGTHS from
 #source to every other vertex (needs to be modified to include path information).
 ###########################################################################################################################
 
