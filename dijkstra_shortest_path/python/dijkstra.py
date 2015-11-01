@@ -1,23 +1,23 @@
 ###########################################################################################################################
-#IMPLEMENTATION OF Dijkstra's Shortest Path Algorithm on a weighted, directed graph.
+#IMPLEMENTATION OF Dijkstra's Shortest Path Algorithm for weighted, directed graphs. Yields shortest path LENGTHS from
+#source to every other vertex (needs to be modified to include path information).
 ###########################################################################################################################
 
-from heapq import heapify, heappush, heappop;
+#takes the graph (described below) and the source vertex as arguments and returns a dictionary which contains all the vertices and their corresponding shortest path lengths
+def dijkstra (graph, start):
+	spt_set, dists = set (), { node : 0 if node == start else float ('inf') for node in list (graph) };
 
-def dijkstra (graph, start, target):
-	queue, current_node = [], (0, start, [start]);
+	while (not spt_set == set (list (graph))):
+		nearest = (None, float ('inf'));
+		for node in dists:
+			if (nearest [1] > dists [node] and spt_set.isdisjoint ([node])):
+				nearest = (node, dists [node]);
+		spt_set.add (nearest [0]);
 
-	heapify (queue);
-	heappush (queue, current_node);
-	while (not current_node [1] == target):
-		try:
-			current_node = heappop (queue);
-		except Exception as e:
-			return (-1, []);
-
-		for neighbour in graph [current_node [1]]:
-			heappush (queue, (current_node [0] + neighbour [1], neighbour [0], current_node [2] + [neighbour [0]]));
-	return (current_node [0], current_node [2]);
+		for node in graph [nearest [0]]:
+			if (dists [node [0]] > (nearest [1] + node [1])):
+				dists [node [0]] = nearest [1] + node [1];
+	return (dists);
 
 #EXAMPLE OF A GRAPH
 #REPRESENTED BY A DICTIONARY, WHERE A KEY REPRESENTS THE NODE FROM WHICH THE EDGE STARTS. A key's value is a set of Tuples. The first element of each tuple is the Node the edge reaches. The second element is the weight of the edge. The list contains 1 tuple for every neighbour the KEY has.
@@ -32,4 +32,6 @@ graph = {
 };
 
 #SAMPLE CALL TO THE FUNCTION
-print (dijkstra (graph, 'A', 'F'));
+dists = dijkstra (graph, 'A');
+print ('Distances from A to all nodes are: ');
+for i in x: print (i, x [i]);
