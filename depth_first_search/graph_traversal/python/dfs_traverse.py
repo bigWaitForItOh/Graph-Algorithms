@@ -1,5 +1,6 @@
 #####################################################################################################################################
-#IMPLEMENTATION OF Depth First Search Graph Traversal Algorithm - Explores the entire Graph startng from the origin node
+#IMPLEMENTATION OF Depth First Search Graph Traversal Algorithm - Explores the entire (Unweighted) Graph startng from the origin node
+#The algorithm works on both Directed & Undirected Graphs
 #NOTE: The program output may differ on multiple runs for the same graph (thought the different outputs will all be correct).
 #      The reason for this is that we are using set () to represent neighbouring nodes of a particular node inside the graph.
 #      Python sets do not necessarily store the nodes in the order in which they exist in the list.
