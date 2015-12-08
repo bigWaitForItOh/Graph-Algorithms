@@ -62,3 +62,8 @@ Explanation, Analysis and Implementation of Graph Algorithms
 24. Ford-Fulkerson Max Flow Algorithm
 
 25. QuadTree
+
+26. Tree Traversal
+	-> Pre-Order
+	-> In-order
+	-> Post-Order
