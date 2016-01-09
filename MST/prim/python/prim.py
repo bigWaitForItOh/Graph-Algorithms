@@ -8,25 +8,26 @@
 from heapq import heapify, heappop, heappush;
 
 #prim_mst () takes graph as argument, returns a 2-Tuple: (A, B) where A is the MST and B is the MST weight
-def prim_mst (graph):
+def prim_mst (graph, start):
 	visited, nodes = set (), set ([i for i in graph]);
 	tree, tree_weight = {i : set () for i in graph}, 0;
-	edge_choices = [(0, None, list (graph) [0])];
+	edge_choices = [(0, None, start)];
 
+	tree [None] = set ();
 	heapify (edge_choices);
 	while (nodes):
 		weight, src, dest = heappop (edge_choices);
-		if (src):
+		if (not dest in visited):
 			tree [src].add ( (dest, weight) );
 			tree [dest].add ( (src, weight) );
 
-		nodes.remove (dest);
-		visited.add (dest);
-		tree_weight += weight;
+			nodes.remove (dest);
+			visited.add (dest);
+			tree_weight += weight;
 
-		for neighbour in graph [dest]:
-			if (not (neighbour [0] in visited)):
-				heappush (edge_choices, (neighbour [1], dest, neighbour [0]));
+			for neighbour in graph [dest]:
+				if (not (neighbour [0] in visited)):
+					heappush (edge_choices, (neighbour [1], dest, neighbour [0]));
 
 	return (tree, tree_weight);
 
